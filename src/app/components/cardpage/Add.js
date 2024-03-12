@@ -11,7 +11,7 @@ const customStyles = {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: "rgba(255, 255, 255, 0.75)",
+    backgroundColor: "rgba(0, 0, 0, 0.4)",
   },
   content: {
     top: "50%",
@@ -95,10 +95,6 @@ function Add() {
               Add a card
             </h5>
             <div>
-              <label
-                for="message"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              ></label>
               <textarea
                 id="message"
                 rows="4"
@@ -108,10 +104,6 @@ function Add() {
               />
             </div>
             <div>
-              <label
-                for="message"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              ></label>
               <textarea
                 id="message"
                 rows="4"
