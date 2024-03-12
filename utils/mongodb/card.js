@@ -37,3 +37,16 @@ export async function addCard(question, answer) {
     throw new Error("Something went wrong!");
   }
 }
+
+export async function getCards() {
+  try {
+    if (!quiz) await init();
+
+    const cards = await quiz.find({}).toArray();
+
+    return cards;
+  } catch (error) {
+    console.error("MongoDB Error:", error);
+    throw new Error("Something went wrong!");
+  }
+}

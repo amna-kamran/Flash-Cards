@@ -26,7 +26,6 @@ const customStyles = {
 };
 
 function Add() {
-  let subtitle;
   const [modalIsOpen, setIsOpen] = useState(false);
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
@@ -43,7 +42,7 @@ function Add() {
     e.preventDefault();
     closeModal();
     try {
-      const response = await fetch("/api/card", {
+      const response = await fetch("/api/card/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

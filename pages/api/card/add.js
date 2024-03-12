@@ -1,14 +1,13 @@
-import { addCard } from "../../../utils/mongodb/card";
+import { addCard } from "@/utils/mongodb/card";
+import { sendNewCard } from "./subscribe";
 
 const handler = async (req, res) => {
   if (req.method === "POST") {
     try {
-      // Parse the request body as JSON
-      console.log(req.body);
       const { question, answer } = req.body;
+      sendNewCard(req.body);
       console.log("answer", answer);
 
-      // Call the addCard function with question and answer parameters
       const { error } = await addCard(question, answer);
 
       if (error) throw new Error(error);
