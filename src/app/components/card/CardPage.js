@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import Add from "./Add";
 
-function QuizPage() {
+function CardPage() {
   const [cards, setCards] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -43,4 +43,4 @@ function QuizPage() {
   );
 }
 
-export default QuizPage;
+export default CardPage;

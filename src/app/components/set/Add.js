@@ -27,6 +27,7 @@ const customStyles = {
 
 function Add() {
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [name, setName] = useState("");
 
   function openModal() {
     setIsOpen(true);
@@ -34,6 +35,37 @@ function Add() {
 
   function closeModal() {
     setIsOpen(false);
+  }
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+  async function addSet(e) {
+    e.preventDefault();
+    closeModal();
+    try {
+      const response = await fetch("/api/set/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: name,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to save data");
+      }
+
+      const responseData = await response.json();
+      console.log("jdnjkx");
+      console.log(responseData.message);
+
+      return responseData;
+    } catch (error) {
+      console.error("Error:", error);
+      throw error;
+    }
   }
 
   return (
@@ -61,9 +93,11 @@ function Add() {
                 id="message"
                 class="block p-2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Add a name"
+                onChange={handleNameChange}
               />
             </div>
             <button
+              onClick={addSet}
               type="submit"
               class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >

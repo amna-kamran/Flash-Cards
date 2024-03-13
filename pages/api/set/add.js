@@ -1,12 +1,12 @@
-import { addCard } from "@/utils/mongodb/card";
+import { addSet } from "@/utils/mongodb/set";
 
 const handler = async (req, res) => {
   if (req.method === "POST") {
     try {
-      const { question, answer } = req.body;
-      console.log("answer", answer);
+      const { name } = req.body;
+      console.log("name", name);
 
-      const { error } = await addCard(question, answer);
+      const { error } = await addSet(name);
 
       if (error) throw new Error(error);
       return res.status(200).json({ message: "Card added successfully" });

@@ -2,14 +2,14 @@ import clientPromise from "./mongodb";
 
 let client;
 let db;
-let quiz;
+let set;
 
 async function init() {
   if (db) return;
   try {
     client = await clientPromise;
     db = await client.db();
-    quiz = await db.collection("quiz");
+    set = await db.collection("set");
   } catch (error) {
     throw new Error("Error initializing database connection");
   }
@@ -19,33 +19,32 @@ async function init() {
   await init();
 })();
 
-export async function addCard(setId, question, answer) {
+export async function addSet(name) {
   try {
-    if (!quiz) await init();
+    if (!set) await init();
 
-    if (!quiz) {
-      const newCollection = await db.createCollection("quiz");
-      console.log("Created new collection: quiz");
-      quiz = newCollection;
+    if (!set) {
+      const newCollection = await db.createCollection("set");
+      console.log("Created new collection: set");
+      set = newCollection;
     }
-
     const id = new Date().getTime();
-    await quiz.insertOne({ id, setId, question, answer });
+    await set.insertOne({ id, name });
 
-    return { message: "Data saved successfully!" };
+    return { message: "Set added successfully!" };
   } catch (error) {
     console.error("MongoDB Error:", error);
     throw new Error("Something went wrong!");
   }
 }
 
-export async function getCards(setId) {
+export async function getSets() {
   try {
-    if (!quiz) await init();
+    if (!set) await init();
 
-    const cards = await quiz.find({ setId }).toArray();
+    const sets = await set.find({}).sort({ id: -1 }).toArray();
 
-    return cards;
+    return sets;
   } catch (error) {
     console.error("MongoDB Error:", error);
     throw new Error("Something went wrong!");
