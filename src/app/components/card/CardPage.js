@@ -27,7 +27,7 @@ function CardPage() {
           <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-white-900"></div>
         </div>
       ) : (
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-4 m-10 ">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 m-10 ">
           {cards.map((card, index) => (
             <Card
               key={card.id}

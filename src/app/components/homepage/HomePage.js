@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Add from "../set/Add";
 import Set from "../set/Set";
+import { useRouter } from "next/navigation";
 
 function HomePage() {
   const [sets, setSets] = useState([]);
@@ -19,7 +20,10 @@ function HomePage() {
         setIsLoading(false);
       });
   }, []);
-
+  const router = useRouter();
+  const handleClick = (setId) => {
+    router.push(`/card/card?setId=${setId}`);
+  };
   return (
     <>
       {isLoading ? (
@@ -29,7 +33,9 @@ function HomePage() {
       ) : (
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-4 m-10 ">
           {sets.map((set) => (
-            <Set key={set.id} name={set.name} setId={set.setId} />
+            <div onClick={() => handleClick(set.setId)}>
+              <Set key={set.id} name={set.name} setId={set.setId} />
+            </div>
           ))}
           <Add />
         </div>
