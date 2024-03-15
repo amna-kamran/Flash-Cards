@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-const Set = ({ name, setId }) => {
+const Set = ({ name }) => {
   return (
     <div class="min-h-48 min-w-64">
       <a

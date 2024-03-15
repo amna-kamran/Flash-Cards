@@ -26,6 +26,7 @@ export async function addCard(setId, question, answer) {
     if (!quiz) {
       const newCollection = await db.createCollection("quiz");
       console.log("Created new collection: quiz");
+
       quiz = newCollection;
     }
 
@@ -39,11 +40,11 @@ export async function addCard(setId, question, answer) {
   }
 }
 
-export async function getCards(setId) {
+export async function getCards() {
   try {
     if (!quiz) await init();
 
-    const cards = await quiz.find({ setId }).toArray();
+    const cards = await quiz.find({}).toArray();
 
     return cards;
   } catch (error) {

@@ -33,8 +33,13 @@ function HomePage() {
       ) : (
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-4 m-10 ">
           {sets.map((set) => (
-            <div onClick={() => handleClick(set.setId)}>
-              <Set key={set.id} name={set.name} setId={set.setId} />
+            <div
+              onClick={() => {
+                console.log("setId: ", set.id);
+                handleClick(set.id);
+              }}
+            >
+              <Set key={set.id} name={set.name} setId={set.id} />
             </div>
           ))}
           <Add />

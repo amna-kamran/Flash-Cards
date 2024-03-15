@@ -3,6 +3,7 @@ import React from "react";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import { useState } from "react";
 import Modal from "react-modal";
+import { useRouter } from "next/router";
 
 const customStyles = {
   overlay: {
@@ -26,6 +27,8 @@ const customStyles = {
 };
 
 function Add() {
+  const router = useRouter();
+  const { setId } = router.query;
   const [modalIsOpen, setIsOpen] = useState(false);
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
@@ -48,6 +51,7 @@ function Add() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          setId: setId,
           question: question,
           answer: answer,
         }),
@@ -58,7 +62,6 @@ function Add() {
       }
 
       const responseData = await response.json();
-      console.log("jdnjkx");
       console.log(responseData.message);
 
       return responseData;

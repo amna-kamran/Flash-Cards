@@ -2,23 +2,30 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import Add from "./Add";
+import { useRouter } from "next/router";
 
 function CardPage() {
+  const router = useRouter();
+  const { setId } = router.query;
+
   const [cards, setCards] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/card/get")
-      .then((response) => response.json())
-      .then((data) => {
-        setCards(data);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-        setIsLoading(false);
-      });
-  }, []);
+    if (setId !== undefined) {
+      fetch("/api/card/get")
+        .then((response) => response.json())
+        .then((data) => {
+          data = data.filter((card) => card.setId == setId);
+          setCards(data);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          console.log(error);
+          setIsLoading(false);
+        });
+    }
+  }, [setId]);
 
   return (
     <>
