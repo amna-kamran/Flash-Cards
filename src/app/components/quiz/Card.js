@@ -15,7 +15,7 @@ const Card = ({ question, answer, questionNumber, isAnswered }) => {
         <div onClick={handleClick}>
           <a
             href="#"
-            className={`block h-80 p-6 bg-white border border-gray-200 rounded-lg shadow  ${
+            className={`block h-80 p-6 border border-gray-200 rounded-lg shadow  ${
               isAnswered
                 ? "hover:bg-pink-200 bg-pink-800 dark:border-pink-700 dark:hover:bg-pink-700"
                 : "hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
@@ -40,9 +40,9 @@ const Card = ({ question, answer, questionNumber, isAnswered }) => {
         <div onClick={handleClick}>
           <a
             href="#"
-            className={`block h-80 p-6 bg-white border border-gray-200 rounded-lg shadow  ${
+            className={`block h-80 p-6 border border-gray-200 rounded-lg shadow  ${
               isAnswered
-                ? "hover:bg-pink-200 bg-pink-800 dark:border-pink-700 dark:hover:bg-pink-700"
+                ? "hover:bg-pink-800 bg-pink-800 dark:border-pink-700 dark:hover:bg-pink-700"
                 : "hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
             }`}
           >

@@ -231,7 +231,10 @@ function QuizPage() {
         onRequestClose={closeModal}
         style={customStyles}
       >
-        <div class="w-full max-w-sm border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700"></div>
+        <div class="w-full max-w-sm border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+          <p>Correct: {correctCount}</p>
+          <p>Incorrect: {incorrectCount}</p>
+        </div>
       </Modal>
     </>
   );
