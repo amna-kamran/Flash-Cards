@@ -27,6 +27,10 @@ function CardPage() {
     }
   }, [setId]);
 
+  const handleClick = () => {
+    router.push(`/quiz/quiz`);
+  };
+
   return (
     <>
       {isLoading ? (
@@ -34,16 +38,26 @@ function CardPage() {
           <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-white-900"></div>
         </div>
       ) : (
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 m-10 ">
-          {cards.map((card, index) => (
-            <Card
-              key={card.id}
-              question={card.question}
-              answer={card.answer}
-              questionNumber={index + 1}
-            />
-          ))}
-          <Add />
+        <div className="relative">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 m-10 ">
+            {cards.map((card, index) => (
+              <Card
+                key={card.id}
+                question={card.question}
+                answer={card.answer}
+                questionNumber={index + 1}
+              />
+            ))}
+            <Add />
+          </div>
+          <div className="fixed bottom-5 right-5">
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              onClick={handleClick}
+            >
+              Take Quiz
+            </button>
+          </div>
         </div>
       )}
     </>
