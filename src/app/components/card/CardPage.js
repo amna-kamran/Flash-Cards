@@ -28,7 +28,7 @@ function CardPage() {
   }, [setId]);
 
   const handleClick = () => {
-    router.push(`/quiz/quiz`);
+    router.push(`/quiz/quiz?setId=${setId}`);
   };
 
   return (
