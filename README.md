@@ -1,3 +1,4 @@
+# Flash Cards Web Application
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -16,21 +17,47 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+### Create a new set of cards
+<img src="https://github.com/amna-kamran/Flash-Cards/assets/101377410/71094939-5d0b-4a71-b247-3b1642b5b47f" alt="Create Set" width="400">
 
-To learn more about Next.js, take a look at the following resources:
+<p> Thats how the sets will show </p>
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Add new cards with your questions
+<img src="https://github.com/amna-kamran/Flash-Cards/assets/101377410/16ac04da-936a-42d9-a72d-d6c373c80a93" alt="Add Cards" width="400">
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<p> Cards will get displayed like this </p>
+---
 
-## Deploy on Vercel
+### Display Cards
+<img src="https://github.com/amna-kamran/Flash-Cards/assets/101377410/97b2fd5e-1fcf-4862-8f45-352e8263fa78" alt="Display Cards" width="400">
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<p> The back side of the card will have the answer </p>
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Quiz Mode
+<img src="https://github.com/amna-kamran/Flash-Cards/assets/101377410/15468053-8520-49de-9406-cb1b8dbd59db" alt="Quiz Mode" width="400">
+
+<p> This is the quiz mode where you can test yourself and mark whether you got the answer correct or incorrect. </p>
+---
+
+### Submission
+<img src="https://github.com/amna-kamran/Flash-Cards/assets/101377410/d97a5284-a24a-4895-8117-1a3040aa469f" alt="Submission" width="400">
+
+<p> You cannot edit your response once the option has been submitted. The card will turn pink on submission. </p>
+---
+
+### Quiz Result
+<img src="https://github.com/amna-kamran/Flash-Cards/assets/101377410/da246ea7-d876-4603-bae9-2a82e8f5dc5d" alt="Quiz Result" width="400">
+
+<p> On clicking the "end" button you will see the result :> </p>
+---
+
+
+
+
+
+
+
